@@ -175,6 +175,31 @@ ON (r.rental_id=p.rental_id)
 GROUP BY c.name ORDER BY Gross  LIMIT 5;
 
  #7h
+SELECT c.name AS "Top Five", SUM(p.amount) AS "Gross" 
+FROM category c
+JOIN film_category fc ON (c.category_id=fc.category_id)
+JOIN inventory i ON (fc.film_id=i.film_id)
+JOIN rental r ON (i.inventory_id=r.inventory_id)
+JOIN payment p ON (r.rental_id=p.rental_id)
+GROUP BY c.name ORDER BY Gross  LIMIT 5;
+
+ #8a
+ Select c.name as "Top Fdive", Sum(p.amount) AS "Gross"
+ From category c
+ Join film_category fc ON (c.category_id=fc.category_id)
+ Join inventory i ON (fc.film_id=i.film_id)
+ Join rental r ON (i.inventory_id=r.inventory_id)
+ Join payment p ON (r.rental_id=p.rental_id)
+ Group BY c.name ORDER BY Gross Limit 5;
+ 
+  #8b
+  SELECT * FROM Topfive;
+  
+  #8c
+  DROP VIEW TOPFive 
+  
+  
+
 
   	
 
